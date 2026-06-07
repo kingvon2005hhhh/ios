@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Theos
-        uses: subdiox/theos-action@v2.2
+        uses: Randomblock1/theos-action@v1
 
       - name: Build Tweak
         run: make
