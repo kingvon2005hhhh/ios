@@ -1,0 +1,26 @@
+name: Build Tweak
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Theos
+        uses: subdiox/theos-action@v2.2
+
+      - name: Build Tweak
+        run: make package
+
+      - name: Upload dylib
+        uses: actions/upload-artifact@v3
+        with:
+          name: AimbotTweak_dylib
+          path: .theos/obj/debug/arm64/AimbotTweak.dylib
